@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-3pvhgd@2hc@(a6i(e!7@%07qbsjn@jprv9ggjtj-ptd@3nc%v^
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-andersh82-drfworkspace-ofizirltju9.ws-eu110.gitpod.io']
 
 
 INSTALLED_APPS = [
@@ -31,7 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary'
+    'cloudinary',
+
+    'profiles',
 ]
 
 MIDDLEWARE = [
