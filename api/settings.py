@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-3pvhgd@2hc@(a6i(e!7@%07qbsjn@jprv9ggjtj-ptd@3nc%v^
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['8000-andersh82-drfworkspace-ofizirltju9.ws-eu110.gitpod.io']
+ALLOWED_HOSTS = ['8000-andersh82-drfworkspace-jgup715unud.ws-eu110.gitpod.io']
 
 
 INSTALLED_APPS = [
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     'profiles',
     'posts',
+    'comments',
 
 ]
 
