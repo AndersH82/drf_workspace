@@ -2,7 +2,7 @@ asgiref==3.7.2
 cloudinary==1.39.0
 dj-rest-auth==2.1.9
 Django==5.0.3
-django-allauth==0.57.2
+django-allauth==0.54.0
 django-cloudinary-storage==0.3.0
 django-filter==24.1
 djangorestframework==3.14.0

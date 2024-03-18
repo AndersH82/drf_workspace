@@ -38,6 +38,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-andersh82-drfworkspace-jgup715unud.ws-eu110.gitpod.io']
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-andersh82-drfworkspace-jgup715unud.ws-eu110.gitpod.io']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,7 +76,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'api.urls'
