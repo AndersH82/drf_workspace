@@ -109,6 +109,10 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOWED_CREDENTIALS = True
 
+CORS_ORIGIN_WHITELIST = [
+    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io',
+]
+
 ROOT_URLCONF = 'api.urls'
 
 TEMPLATES = [
