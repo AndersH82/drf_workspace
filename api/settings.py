@@ -49,11 +49,13 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-andersh82-drfworkspace-jgup715unud.ws-eu110.gitpod.io'
+    '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
 ]
 
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-andersh82-drfworkspace-jgup715unud.ws-eu110.gitpod.io']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -101,6 +103,10 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
+CORS_ALLOWED_ORIGINS = [
+    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io'
+]
+
 CORS_ALLOWED_CREDENTIALS = True
 
 ROOT_URLCONF = 'api.urls'
@@ -132,7 +138,7 @@ if 'DEV' in os.environ:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
     }
 
 AUTH_PASSWORD_VALIDATORS = [
