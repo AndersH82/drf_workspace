@@ -6,7 +6,6 @@ import re
 if os.path.exists('env.py'):
     import env
 
-
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
@@ -35,7 +34,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-JWT_AUTH_SAMESITE = 'None'
+
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.CurrentUserSerializer'
@@ -46,16 +45,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = 'DEV' in os.environ
 
-
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
-]       
 
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
 ]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -83,41 +78,42 @@ INSTALLED_APPS = [
     'likes',
     'followers',
     'friends',
-
 ]
+
 SITE_ID = 1
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+JWF_AUTH_SAMESITE = 'None'
+
 if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(r'^(.*)-', os.environ.get(
-        'CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(1)
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''),
+                             re.IGNORECASE).group(0)
+
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = [
-    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io',
-    'http://localhost:3000',
+    "http://localhost:3000",
 ]
-
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:3000',
-    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io',
-]
-
-CORS_ALLOWED_CREDENTIALS = True
 
 ROOT_URLCONF = 'api.urls'
+
 
 TEMPLATES = [
     {
@@ -137,6 +133,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'api.wsgi.application'
 
+
 if 'DEV' in os.environ:
     DATABASES = {
         'default': {
@@ -146,8 +143,9 @@ if 'DEV' in os.environ:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.config()
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
