@@ -6,7 +6,7 @@ from .settings import (
 )
 
 
-@api_view(['POST'])
+@api_view()
 def root_route(request):
     return Response({
         "message": "Welcome to my dfa API!"
