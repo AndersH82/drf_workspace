@@ -50,11 +50,11 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
-]
+]       
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io'
+    'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
 ]
 
 INSTALLED_APPS = [
@@ -142,7 +142,7 @@ if 'DEV' in os.environ:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.config()
     }
 
 AUTH_PASSWORD_VALIDATORS = [
