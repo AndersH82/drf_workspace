@@ -105,15 +105,11 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOWED_ORIGINS = [
-    '3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io/',
+    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io/',
     'http://localhost:3000',
 ]
 
 CORS_ALLOWED_CREDENTIALS = True
-
-CORS_ORIGIN_WHITELIST = [
-    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io',
-]
 
 ROOT_URLCONF = 'api.urls'
 
