@@ -32,7 +32,7 @@ if 'DEV' not in os.environ:
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-JWF_AUTH_SAMESITE = 'None'
+JWT_AUTH_SAMESITE = 'None'
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_REFRESH_COOKIE_PATH = '/'
@@ -110,13 +110,6 @@ else:
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-]
 
 AUTHENTICATION_BACKENDS = (
    "django.contrib.auth.backends.ModelBackend",
@@ -154,7 +147,7 @@ if 'DEV' in os.environ:
     }
 else:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.config(os.environ.get("DATABASE_URL"))
     }
 
 
