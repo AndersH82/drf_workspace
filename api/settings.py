@@ -49,9 +49,11 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
-
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
