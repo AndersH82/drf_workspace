@@ -32,10 +32,8 @@ if 'DEV' not in os.environ:
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-JWT_AUTH_SAMESITE = 'None'
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-JWT_AUTH_REFRESH_COOKIE_PATH = '/'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.CurrentUserSerializer'
@@ -49,12 +47,6 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io',
-    'socialorangeapi-6ce409532368.herokuapp.com'
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
-    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io'
 ]
 
 INSTALLED_APPS = [
@@ -97,6 +89,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+JWT_AUTH_SAMESITE = 'None'
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''),
@@ -112,11 +105,10 @@ else:
 
 CORS_ALLOW_CREDENTIALS = True
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
 
-AUTHENTICATION_BACKENDS = (
-   "django.contrib.auth.backends.ModelBackend",
-   "allauth.account.auth_backends.AuthenticationBackend",
-)
 
 ROOT_URLCONF = 'api.urls'
 
