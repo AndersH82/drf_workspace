@@ -48,11 +48,13 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
+    '8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io',
+    'socialorangeapi-6ce409532368.herokuapp.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-andersh82-drfworkspace-qu6lqgebckx.ws-eu110.gitpod.io'
+    'https://3000-andersh82-socialorange-bnp0ic81idd.ws-eu110.gitpod.io'
 ]
 
 INSTALLED_APPS = [
