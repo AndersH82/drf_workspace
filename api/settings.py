@@ -98,7 +98,7 @@ JWT_AUTH_SAMESITE = 'None'
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io",
+    "https://localhost:3000",
 ]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
@@ -114,7 +114,6 @@ else:
     ]
 
 ROOT_URLCONF = 'api.urls'
-
 
 TEMPLATES = [
     {
