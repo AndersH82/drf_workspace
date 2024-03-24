@@ -97,9 +97,7 @@ JWT_AUTH_SAMESITE = 'None'
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://localhost:3000",
-]
+CORS_ALLOW_ORIGINS_ALL = True
 
 CORS_ALLOW_HEADERS = [
     'content-type',
