@@ -54,6 +54,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,7 +72,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    'corsheaders',
 
     'profiles',
     'posts',
@@ -95,9 +95,10 @@ MIDDLEWARE = [
 
 JWT_AUTH_SAMESITE = 'None'
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000",
-                        "https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io",
-                        ]
+CORS_ALLOWED_ORIGINS = [
+    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
+    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
+]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
@@ -114,7 +115,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        r'https://\d+-.*\.gitpod\.io',
     ]
 
 ROOT_URLCONF = 'api.urls'
