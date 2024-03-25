@@ -34,6 +34,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.CurrentUserSerializer'
@@ -46,15 +47,10 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io'
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io'
+    '8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
 ]
 
 INSTALLED_APPS = [
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,6 +68,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'corsheaders',
 
     'profiles',
     'posts',
@@ -93,27 +90,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-JWT_AUTH_SAMESITE = 'None'
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
-    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
-]
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''),
@@ -124,10 +100,18 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r'https://\d+-.*\.gitpod\.io',
+        r"^https://.*\.gitpod\.io$",
     ]
 
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+
 ROOT_URLCONF = 'api.urls'
+
 
 TEMPLATES = [
     {
