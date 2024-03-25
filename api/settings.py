@@ -37,10 +37,8 @@ JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
-    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
-    ]
-
+        'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io'
+]
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.CurrentUserSerializer'
 }
@@ -108,35 +106,12 @@ else:
         r"^https://.*\.gitpod\.io$",
     ]
 
-CORS_ALLOW_ALL_ORIGINS = True
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
-]
-
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
 ]
 
-CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-]
 
 ROOT_URLCONF = 'api.urls'
 
