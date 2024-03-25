@@ -95,7 +95,30 @@ MIDDLEWARE = [
 
 JWT_AUTH_SAMESITE = 'None'
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
+    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization',
+]
+
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''),
+                             re.IGNORECASE).group(0)
+
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r'https://\d+-.*\.gitpod\.io',
+    ]
 
 ROOT_URLCONF = 'api.urls'
 
