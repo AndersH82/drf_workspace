@@ -95,9 +95,10 @@ MIDDLEWARE = [
 
 JWT_AUTH_SAMESITE = 'None'
 
-CORS_ALLOWED_ORIGINS = [
-    "https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io",
-]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000",
+                        "https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io",
+                        ]
+
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     'content-type',
