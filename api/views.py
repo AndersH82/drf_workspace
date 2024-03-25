@@ -5,11 +5,13 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
+
 @api_view()
 def root_route(request):
     return Response({
-        "message": "Welcome to my DRF Workspace API!"
+        "message": "Welcome to my dfa API!"
     })
+
 
 @api_view(['POST'])
 def logout_route(request):
@@ -22,7 +24,6 @@ def logout_route(request):
         samesite=JWT_AUTH_SAMESITE,
         secure=JWT_AUTH_SECURE,
     )
-
     response.set_cookie(
         key=JWT_AUTH_REFRESH_COOKIE,
         value='',

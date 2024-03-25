@@ -36,6 +36,11 @@ JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
+    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io'
+    ]
+
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'api.serializers.CurrentUserSerializer'
 }
