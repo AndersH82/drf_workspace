@@ -103,7 +103,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
-CORS_ALLOWED = '3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
+CORS_ALLOWED_ORIGINS = [
+    'https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io',
+]
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 ROOT_URLCONF = 'api.urls'
