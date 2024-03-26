@@ -50,7 +50,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
+    '8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io'
 ]
 
 INSTALLED_APPS = [
@@ -101,17 +101,9 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
 
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-
 ROOT_URLCONF = 'api.urls'
 
 
