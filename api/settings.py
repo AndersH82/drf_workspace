@@ -52,6 +52,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     '8000-andersh82-drfworkspace-me57xw0rdc4.ws-eu110.gitpod.io',
+    'socialorangeapi-6ce409532368.herokuapp.com',
     'localhost',
 ]
 
