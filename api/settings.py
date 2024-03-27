@@ -106,7 +106,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io"
+    "https://3000-andersh82-socialorange-vum68wv9iyd.ws-eu110.gitpod.io"
 ]
 
 
